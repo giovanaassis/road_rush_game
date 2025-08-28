@@ -1,6 +1,12 @@
 # C
 C_BLUE = (0, 48, 73)
 C_WHITE = (198, 216, 255)
+C_LILAC = (125, 122, 188)
+
+# E
+ENTITY_SPEED = {
+    "RoadBg": 3
+}
 
 # M
 MENU_OPTIONS = [
