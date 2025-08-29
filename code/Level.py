@@ -4,7 +4,7 @@ import pygame
 from pygame import Surface, Rect
 from pygame.font import Font
 
-from code.Const import WIN_HEIGHT, C_WHITE
+from code.Const import WIN_HEIGHT, C_WHITE, EVENT_TRAFFIC, SPAWN_TIME
 from code.Entity import Entity
 from code.EntityFactory import EntityFactory
 
@@ -15,7 +15,9 @@ class Level:
         self.name = name
         self.entity_list: list[Entity] = []
         self.entity_list.extend(EntityFactory.get_entity("RoadBg"))
+        self.entity_list.append(EntityFactory.get_entity("Car"))
         self.timeout = 20000  # 20 SECONDS
+        pygame.time.set_timer(EVENT_TRAFFIC, SPAWN_TIME)
 
     def run(self):
         clock = pygame.time.Clock()
@@ -30,6 +32,9 @@ class Level:
                 if event.type == pygame.QUIT:
                     pygame.quit()
                     sys.exit()
+                if event.type == EVENT_TRAFFIC:
+                    self.entity_list.append(EntityFactory.get_entity("Traffic"))
+
 
             self.level_text(20, f"Timeout: {self.timeout / 1000 :.1f}s", C_WHITE, (70, 30))
             self.level_text(20, f'entidades: {len(self.entity_list)}', C_WHITE, (60, WIN_HEIGHT - 20))
