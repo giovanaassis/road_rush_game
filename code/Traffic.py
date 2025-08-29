@@ -8,5 +8,3 @@ class Traffic(Entity):
 
     def move(self):
         self.rect.y += self.speed
-        if self.rect.top >= WIN_HEIGHT:
-            self.rect.y = -WIN_HEIGHT

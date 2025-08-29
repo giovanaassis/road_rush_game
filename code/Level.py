@@ -7,6 +7,7 @@ from pygame.font import Font
 from code.Const import WIN_HEIGHT, C_WHITE, EVENT_TRAFFIC, SPAWN_TIME
 from code.Entity import Entity
 from code.EntityFactory import EntityFactory
+from code.EntityMediator import EntityMediator
 
 
 class Level:
@@ -38,8 +39,10 @@ class Level:
 
             self.level_text(20, f"Timeout: {self.timeout / 1000 :.1f}s", C_WHITE, (70, 30))
             self.level_text(20, f'entidades: {len(self.entity_list)}', C_WHITE, (60, WIN_HEIGHT - 20))
-
             pygame.display.flip()
+
+            EntityMediator.verify_collision(self.entity_list)
+            EntityMediator.verify_health(self.entity_list)
 
     def level_text(self, text_size: int, text: str, text_color: tuple, text_center_pos: tuple):
         text_font: Font = pygame.font.SysFont("impact", text_size)
