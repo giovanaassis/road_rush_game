@@ -27,6 +27,10 @@ SPAWN_TIME = 1000
 # T
 TIMEOUT_STEP = 100
 TRAFFIC_POSITIONS = [130, 220, 310, 400]
+TUTORIAL_TEXT = [
+    "Survive by dodging the trucks ",
+    "until the timer runs out.",
+    "Stay sharp — one crash and it’s game over!"]
 
 
 # W

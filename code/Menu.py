@@ -8,7 +8,7 @@ from code.Const import WIN_WIDTH, C_BLUE, C_WHITE, MENU_OPTIONS, C_LILAC
 class Menu:
     def __init__(self, window):
         self.window = window
-        self.surf = pygame.image.load('./assets/Bg2.png')
+        self.surf = pygame.image.load('./assets/MenuBg.png')
         self.rect = self.surf.get_rect()
 
     def run(self):

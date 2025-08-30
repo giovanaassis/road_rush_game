@@ -52,7 +52,6 @@ class Level:
                 return False
 
             self.level_text(20, f"Timeout: {self.timeout / 1000 :.1f}s", C_WHITE, (70, 30))
-            self.level_text(20, f'entidades: {len(self.entity_list)}', C_WHITE, (60, WIN_HEIGHT - 20))
             pygame.display.flip()
 
             EntityMediator.verify_collision(self.entity_list)
